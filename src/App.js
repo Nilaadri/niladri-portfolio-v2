@@ -1,5 +1,17 @@
+import Desktop from "./components/Desktop/Desktop";
 import Loader from "./components/Loader/Loader";
 
 export default function App() {
-  return Loader();
+
+    const root = document.createElement("div");
+
+    root.appendChild(
+        Loader()
+    );
+
+    root.appendChild(
+        Desktop()
+    );
+
+    return root;
 }

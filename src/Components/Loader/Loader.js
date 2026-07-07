@@ -1,23 +1,36 @@
 import "./Loader.css";
 
 export default function Loader() {
-  return `
-    <section class="loader">
-      <div class="loader__content">
 
-        <p class="loader__status">
-          INITIALIZING SYSTEM
-        </p>
+    const loader = document.createElement("section");
+    loader.className = "loader";
 
-        <div class="loader__bar">
-          <div class="loader__progress"></div>
-        </div>
+    const content = document.createElement("div");
+    content.className = "loader__content";
 
-        <p class="loader__message">
-          Preparing Desktop...
-        </p>
+    const status = document.createElement("p");
+    status.className = "loader__status";
+    status.textContent = "INITIALIZING SYSTEM";
 
-      </div>
-    </section>
-  `;
+    const bar = document.createElement("div");
+    bar.className = "loader__bar";
+
+    const progress = document.createElement("div");
+    progress.className = "loader__progress";
+
+    const message = document.createElement("p");
+    message.className = "loader__message";
+    message.textContent = "Preparing Desktop...";
+
+    bar.appendChild(progress);
+
+    content.append(
+        status,
+        bar,
+        message
+    );
+
+    loader.appendChild(content);
+
+    return loader;
 }
