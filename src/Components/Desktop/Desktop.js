@@ -2,27 +2,25 @@ import "./Desktop.css";
 
 import DesktopIcon from "./DesktopIcon";
 
+import apps from "../../data/apps";
+
 export default function Desktop() {
 
     const desktop = document.createElement("main");
+
     desktop.className = "desktop";
 
     const icons = document.createElement("section");
+
     icons.className = "desktop-icons";
 
-    icons.append(
+    apps.forEach(app => {
 
-        DesktopIcon("About","about"),
+        icons.appendChild(
+            DesktopIcon(app)
+        );
 
-        DesktopIcon("Experience","experience"),
-
-        DesktopIcon("Projects","projects"),
-
-        DesktopIcon("Gallery","gallery"),
-
-        DesktopIcon("Terminal","terminal")
-
-    );
+    });
 
     desktop.appendChild(icons);
 

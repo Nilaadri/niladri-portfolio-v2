@@ -1,20 +1,27 @@
 import "./DesktopIcon.css";
 
-export default function DesktopIcon(label, id) {
-    const icon = document.createElement("button");
+export default function DesktopIcon(app) {
 
-    icon.className = "desktop-icon";
-    icon.dataset.app = id;
+    const button = document.createElement("button");
+
+    button.className = "desktop-icon";
+
+    button.dataset.app = app.id;
 
     const glyph = document.createElement("span");
+
     glyph.className = "desktop-icon__glyph";
+
     glyph.textContent = "□";
 
-    const text = document.createElement("span");
-    text.className = "desktop-icon__label";
-    text.textContent = label;
+    const label = document.createElement("span");
 
-    icon.append(glyph, text);
+    label.className = "desktop-icon__label";
 
-    return icon;
+    label.textContent = app.title;
+
+    button.append(glyph, label);
+
+    return button;
+
 }
