@@ -1,9 +1,5 @@
-import { BootLoader } from "./components/Loader/Loader";
-import Desktop from "./components/Desktop/Desktop";
+import Loader from "./components/Loader/Loader";
 
 export default function App() {
-  return `
-    ${BootLoader()}
-    ${Desktop()}
-  `;
+  return Loader();
 }
