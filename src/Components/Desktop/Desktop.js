@@ -1,33 +1,31 @@
 import "./Desktop.css";
 
+import DesktopIcon from "./DesktopIcon";
+
 export default function Desktop() {
 
     const desktop = document.createElement("main");
     desktop.className = "desktop";
 
-    const center = document.createElement("div");
-    center.className = "desktop__center";
+    const icons = document.createElement("section");
+    icons.className = "desktop-icons";
 
-    const status = document.createElement("p");
-    status.className = "desktop__status";
-    status.textContent = "SYSTEM READY";
+    icons.append(
 
-    const title = document.createElement("h1");
-    title.className = "desktop__title";
-    title.textContent = "NILADRI";
+        DesktopIcon("About","about"),
 
-    const subtitle = document.createElement("p");
-    subtitle.className = "desktop__subtitle";
-    subtitle.textContent =
-        "Project Management • Operations • Scrum";
+        DesktopIcon("Experience","experience"),
 
-    center.append(
-        status,
-        title,
-        subtitle
+        DesktopIcon("Projects","projects"),
+
+        DesktopIcon("Gallery","gallery"),
+
+        DesktopIcon("Terminal","terminal")
+
     );
 
-    desktop.appendChild(center);
+    desktop.appendChild(icons);
 
     return desktop;
+
 }

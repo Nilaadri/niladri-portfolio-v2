@@ -1,22 +1,24 @@
-.desktop {
-  width: 100%;
-  min-height: 100vh;
+.desktop{
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width:100%;
+    min-height:100vh;
 
-  background: var(--color-bg);
+    display:flex;
 
-  opacity: 0;
-  transform: scale(0.98);
+    align-items:center;
 
-  transition:
-    opacity 800ms ease,
-    transform 800ms ease;
+    padding-left:8vw;
+
+    background:var(--color-bg);
+
 }
 
-.desktop--visible {
-  opacity: 1;
-  transform: scale(1);
+.desktop-icons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
 }

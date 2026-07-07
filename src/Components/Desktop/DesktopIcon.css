@@ -1,0 +1,41 @@
+.desktop-icon {
+
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+
+    background:none;
+    border:none;
+
+    color:var(--color-text);
+
+    cursor:pointer;
+
+    padding:.55rem .75rem;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+
+}
+
+.desktop-icon:hover{
+
+    transform:translateX(8px);
+
+}
+
+.desktop-icon__glyph{
+
+    font-size:1rem;
+
+    color:var(--color-muted);
+
+}
+
+.desktop-icon__label{
+
+    font-size:.9rem;
+    letter-spacing:.08rem;
+
+}
