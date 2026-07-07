@@ -1,29 +1,31 @@
 import "./Desktop.css";
 
 import DesktopIcon from "./DesktopIcon";
-
 import apps from "../../data/apps";
 
 export default function Desktop() {
+  const desktop = document.createElement("main");
+  desktop.className = "desktop";
 
-    const desktop = document.createElement("main");
+  const icons = document.createElement("section");
+  icons.className = "desktop-icons";
 
-    desktop.className = "desktop";
+  apps.forEach((app) => {
+    const icon = DesktopIcon(app);
 
-    const icons = document.createElement("section");
-
-    icons.className = "desktop-icons";
-
-    apps.forEach(app => {
-
-        icons.appendChild(
-            DesktopIcon(app)
-        );
-
+    icon.addEventListener("click", () => {
+      desktop.dispatchEvent(
+        new CustomEvent("open-app", {
+          detail: app,
+          bubbles: false,
+        })
+      );
     });
 
-    desktop.appendChild(icons);
+    icons.appendChild(icon);
+  });
 
-    return desktop;
+  desktop.appendChild(icons);
 
+  return desktop;
 }
