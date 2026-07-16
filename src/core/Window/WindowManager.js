@@ -1,3 +1,4 @@
+import MotionEngine from "../Motion/MotionEngine";
 import Window from "./Window";
 import featureRegistry from "../../data/featureRegistry";
 
@@ -6,7 +7,7 @@ export default function WindowManager() {
     const container = document.createElement("div");
     container.className = "window-manager";
 
-    function openWindow(app){
+    function openWindow(app, origin){
 
         const Feature = featureRegistry[app.id];
 
@@ -27,6 +28,10 @@ export default function WindowManager() {
         );
 
         container.appendChild(windowEl);
+        MotionEngine.launch({
+        workspace: windowEl,
+        origin
+        });
 
         windowEl
             .querySelector(".window__close")

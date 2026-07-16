@@ -14,9 +14,14 @@ export default function App() {
 
   root.append(loader, desktop, windows.element);
 
-  desktop.addEventListener("open-app", (event) => {
-    windows.openWindow(event.detail);
-  });
+ desktop.addEventListener("open-app", ({ detail }) => {
+
+    windows.openWindow(
+        detail.app,
+        detail.origin
+    );
+
+});
 
   setTimeout(() => {
     desktop.style.display = "flex";
