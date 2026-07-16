@@ -1,27 +1,45 @@
 import "./Window.css";
 
 export default function Window({ title, content }) {
-  const windowEl = document.createElement("section");
-  windowEl.className = "window";
 
-  const header = document.createElement("header");
-  header.className = "window__header";
+    const windowEl = document.createElement("section");
+    windowEl.className = "window";
 
-  const titleEl = document.createElement("h2");
-  titleEl.className = "window__title";
-  titleEl.textContent = title;
+    const header = document.createElement("header");
+    header.className = "window__header";
 
-  const closeButton = document.createElement("button");
-  closeButton.className = "window__close";
-  closeButton.textContent = "×";
+    const titleEl = document.createElement("h2");
+    titleEl.className = "window__title";
+    titleEl.textContent = title;
 
-  header.append(titleEl, closeButton);
+    const closeButton = document.createElement("button");
+    closeButton.className = "window__close";
+    closeButton.setAttribute("aria-label", "Close");
+    closeButton.textContent = "✕";
 
-  const body = document.createElement("div");
-  body.className = "window__body";
-  body.innerHTML = content;
+    header.append(
+        titleEl,
+        closeButton
+    );
 
-  windowEl.append(header, body);
+    const divider = document.createElement("div");
+    divider.className = "window__divider";
 
-  return windowEl;
+    const body = document.createElement("main");
+    body.className = "window__body";
+
+    if (content instanceof HTMLElement) {
+        body.appendChild(content);
+    } else {
+        body.innerHTML = content;
+    }
+
+    windowEl.append(
+        header,
+        divider,
+        body
+    );
+
+    return windowEl;
+
 }
