@@ -3,5 +3,8 @@
 @import "./styles/typography.css";
 @import "./styles/globals.css";
 @import "./styles/animations.css";
-@import "./components/Loader/Loader.css";
-@import "./components/Desktop/DesktopIcon.css";
+
+@import "./core/Loader/Loader.css";
+@import "./core/Desktop/Desktop.css";
+@import "./core/Desktop/DesktopIcon.css";
+@import "./core/Window/Window.css";

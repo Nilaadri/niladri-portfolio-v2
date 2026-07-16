@@ -1,6 +1,6 @@
-import Desktop from "./components/Desktop/Desktop";
-import Loader from "./components/Loader/Loader";
-import WindowManager from "./components/Window/WindowManager";
+import Desktop from "./core/Desktop/Desktop";
+import Loader from "./core/Loader/Loader";
+import WindowManager from "./core/Window/WindowManager";
 
 export default function App() {
   const root = document.createElement("div");
