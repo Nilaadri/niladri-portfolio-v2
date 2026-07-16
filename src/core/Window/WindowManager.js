@@ -1,31 +1,49 @@
 import Window from "./Window";
+import featureRegistry from "../../data/featureRegistry";
 
 export default function WindowManager() {
-  const container = document.createElement("div");
-  container.className = "window-manager";
 
-  function openWindow(app) {
-    if (app.id !== "about") return;
+    const container = document.createElement("div");
+    container.className = "window-manager";
 
-    const windowEl = Window({
-      title: "About",
-      content: `
-        <p>Hello, I'm Niladri.</p>
-        <p>Welcome to my operating system portfolio.</p>
-      `,
-    });
+    function openWindow(app){
 
-    container.appendChild(windowEl);
+        const Feature = featureRegistry[app.id];
 
-    const closeButton = windowEl.querySelector(".window__close");
+        if(!Feature) return;
 
-    closeButton.addEventListener("click", () => {
-      windowEl.remove();
-    });
-  }
+        const windowEl = Window({
 
-  return {
-    element: container,
-    openWindow,
-  };
+            title: app.title,
+
+            content: ""
+
+        });
+
+        const body = windowEl.querySelector(".window__body");
+
+        body.appendChild(
+            Feature()
+        );
+
+        container.appendChild(windowEl);
+
+        windowEl
+            .querySelector(".window__close")
+            .addEventListener("click",()=>{
+
+                windowEl.remove();
+
+            });
+
+    }
+
+    return{
+
+        element:container,
+
+        openWindow
+
+    };
+
 }

@@ -14,19 +14,45 @@
 }
 
 .loader__content{
-
-    width:min(420px,80vw);
-
+    text-align:center;
 }
 
 .loader__status{
 
-    font-size:.75rem;
-    letter-spacing:.3rem;
+    font-size:.8rem;
 
-    color:#888;
+    letter-spacing:.45rem;
+
+    color:var(--color-muted);
 
     margin-bottom:1rem;
+}
+
+.loader__logo{
+
+    margin:0;
+
+    font-size:clamp(3rem,8vw,6rem);
+
+    font-weight:300;
+
+    letter-spacing:.35rem;
+
+    color:var(--color-text);
+
+}
+
+.loader__version{
+
+    margin-top:1.5rem;
+
+    font-size:.75rem;
+
+    letter-spacing:.3rem;
+
+    color:var(--color-muted);
+
+    opacity:.75;
 
 }
 

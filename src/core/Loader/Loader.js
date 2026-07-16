@@ -10,24 +10,20 @@ export default function Loader() {
 
     const status = document.createElement("p");
     status.className = "loader__status";
-    status.textContent = "INITIALIZING SYSTEM";
+    status.textContent = "INITIALIZING";
 
-    const bar = document.createElement("div");
-    bar.className = "loader__bar";
+    const logo = document.createElement("h1");
+    logo.className = "loader__logo";
+    logo.textContent = "OS/ND";
 
-    const progress = document.createElement("div");
-    progress.className = "loader__progress";
-
-    const message = document.createElement("p");
-    message.className = "loader__message";
-    message.textContent = "Preparing Desktop...";
-
-    bar.appendChild(progress);
+    const version = document.createElement("p");
+    version.className = "loader__version";
+    version.textContent = "v0.1 ALPHA";
 
     content.append(
         status,
-        bar,
-        message
+        logo,
+        version
     );
 
     loader.appendChild(content);
